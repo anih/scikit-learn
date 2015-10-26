@@ -167,6 +167,7 @@ def setup_package():
                     version=VERSION,
                     download_url=DOWNLOAD_URL,
                     long_description=LONG_DESCRIPTION,
+                    install_requires=['numpy==1.10.1', 'scipy==0.15.1'],
                     classifiers=['Intended Audience :: Science/Research',
                                  'Intended Audience :: Developers',
                                  'License :: OSI Approved',
@@ -215,26 +216,26 @@ def setup_package():
                         "scikit-learn website: "
                         "http://scikit-learn.org/stable/install.html\n")
 
-        if numpy_status['up_to_date'] is False:
-            if numpy_status['version']:
-                raise ImportError("Your installation of Numerical Python "
-                                  "(NumPy) {0} is out-of-date.\n{1}{2}"
-                                  .format(numpy_status['version'],
-                                          numpy_req_str, instructions))
-            else:
-                raise ImportError("Numerical Python (NumPy) is not "
-                                  "installed.\n{0}{1}"
-                                  .format(numpy_req_str, instructions))
-        if scipy_status['up_to_date'] is False:
-            if scipy_status['version']:
-                raise ImportError("Your installation of Scientific Python "
-                                  "(SciPy) {0} is out-of-date.\n{1}{2}"
-                                  .format(scipy_status['version'],
-                                          scipy_req_str, instructions))
-            else:
-                raise ImportError("Scientific Python (SciPy) is not "
-                                  "installed.\n{0}{1}"
-                                  .format(scipy_req_str, instructions))
+        # if numpy_status['up_to_date'] is False:
+        #     if numpy_status['version']:
+        #         raise ImportError("Your installation of Numerical Python "
+        #                           "(NumPy) {0} is out-of-date.\n{1}{2}"
+        #                           .format(numpy_status['version'],
+        #                                   numpy_req_str, instructions))
+        #     else:
+        #         raise ImportError("Numerical Python (NumPy) is not "
+        #                           "installed.\n{0}{1}"
+        #                           .format(numpy_req_str, instructions))
+        # if scipy_status['up_to_date'] is False:
+        #     if scipy_status['version']:
+        #         raise ImportError("Your installation of Scientific Python "
+        #                           "(SciPy) {0} is out-of-date.\n{1}{2}"
+        #                           .format(scipy_status['version'],
+        #                                   scipy_req_str, instructions))
+        #     else:
+        #         raise ImportError("Scientific Python (SciPy) is not "
+        #                           "installed.\n{0}{1}"
+        #                           .format(scipy_req_str, instructions))
 
         from numpy.distutils.core import setup
 
